@@ -1,0 +1,3 @@
+[submodule "PythonTidy"]
+	path = PythonTidy
+	url = git://github.com/witsch/PythonTidy.git
