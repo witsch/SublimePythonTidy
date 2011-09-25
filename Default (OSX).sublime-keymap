@@ -1,0 +1,3 @@
+[
+	{ "keys": ["super+ctrl+alt+t"], "command": "python_tidy" }
+]
