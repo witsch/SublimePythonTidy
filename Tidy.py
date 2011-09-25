@@ -1,12 +1,18 @@
 from sublime_plugin import TextCommand
 from sublime import Region
-from os.path import abspath, expanduser, exists
+from subprocess import call
+from os.path import abspath, expanduser, exists, join
 from StringIO import StringIO
 from sys import path
 
 
-# tweak path to allow importing PythonTidy from the git submodule
+# load the git submodule
 extra = abspath('PythonTidy')
+if not exists(join(extra, '.git')):
+    call(['git', 'submodule', 'init'])
+    call(['git', 'submodule', 'update'])
+
+# tweak path to allow importing PythonTidy from the git submodule
 path.insert(0, extra)
 import PythonTidy
 import PythonTidyWrapper
