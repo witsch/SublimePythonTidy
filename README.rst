@@ -10,7 +10,7 @@ Installation
 At the moment Git is required to install the plugin.  You will need
 to clone the repository in your Sublime Text "Packages" directory::
 
-$ git clone https://github.com/witsch/SublimePythonTidy.git
+$ git clone --recursive https://github.com/witsch/SublimePythonTidy.git
 
 The "Packages" directory is located at:
 
