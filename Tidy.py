@@ -32,7 +32,11 @@ class python_tidy(TextCommand):
         setup()
         view = self.view
         region = Region(0L, view.size())
-        source = StringIO(view.substr(region))
+        encoding = view.encoding()
+        if not encoding or encoding == u'Undefined':
+            encoding = view.settings().get('default_encoding')
+        source = StringIO(view.substr(region).encode(encoding))
         output = StringIO()
         PythonTidy.tidy_up(source, output)
-        view.replace(edit, region, output.getvalue())
+        view.replace(edit, region, output.getvalue().decode(encoding))
+
